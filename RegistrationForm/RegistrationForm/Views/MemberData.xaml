@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegistrationForm.Views.MemberData"
+             Title="{Binding Name}">
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="X" Clicked="DeleteMember"/>
+        <ToolbarItem Text="/" Clicked="EditMember"/>
+
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+      
+      <StackLayout Margin="10,10,10,0">
+          <Label Text="Имя и фамилия:" />
+            <Label x:Name="Name" TextColor="Black" FontSize="Medium">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0} {1}">
+                        <Binding Path="Name" />
+                        <Binding Path="SurName" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            <Label Text="Дата рождения:" />
+            <Label Text="{Binding BirthDate, StringFormat='{0:dd.MM.yyyy}'}" FontSize="Medium" TextColor="Black" x:Name="birthDate"/>
+            <Label Text="Телефон:"/>
+            <Label Text="{Binding PhoneNumber}" TextColor="Black" FontSize="Medium"/>
+            <Label Text="Добавлен:" />
+            <Label Text="{Binding WhenAdded, StringFormat='{0:dd.MM.yyyy HH:mm}'}" FontSize="Medium" TextColor="Black"/>
+
+            <StackLayout HorizontalOptions="Start"  Grid.Row="1" Orientation="Horizontal" Spacing="0">
+                <Label Text="Согласие на обработку данных: "/>
+                <Label  TextColor="Green" Text="подтверждено "/>
+            </StackLayout>
+
+        </StackLayout>
+  </ContentPage.Content>
+</ContentPage>

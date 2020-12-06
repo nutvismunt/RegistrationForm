@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RegistrationForm.Views.CreateMember"
+           Title="Создание участника">
+    <ContentPage.ToolbarItems col="*" row="3">
+        <ToolbarItem Text="✔" Clicked="SaveMember"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Margin="6,0,0,0" x:Name="stackLayout">
+        <Label Text="Имя" FontSize="Medium"/>
+        <Entry MaxLength="15" Keyboard="Text" Text="{Binding Name}"/>
+            <Label Text="Фамилия" FontSize="Medium"/>
+            <Entry MaxLength="30" Keyboard="Text" Text="{Binding SurName}"/>
+            <Label Text="Дата рождения" FontSize="Medium"/>
+            <DatePicker x:Name="birthDate" Format="dd.MM.yyyy"  BindingContext="{Binding BirthDate}"/>
+            <Label Text="Номер телефона" FontSize="Medium"/>
+        <Entry MaxLength="30"  Keyboard="Numeric" Text="{Binding PhoneNumber}"/>
+        <StackLayout>
+        <Label Text="Согласие на обработку персональных данных" FontSize="Small"/>
+        <CheckBox x:Name="agreement"/>
+        </StackLayout>
+    </StackLayout>
+
+</ContentPage>
