@@ -3,9 +3,7 @@ using RegistrationForm.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+using System.Text.RegularExpressions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -45,9 +43,7 @@ namespace RegistrationForm.Views
             {
                 register.Update(form);
                 errors.Clear();
-                var member = new MemberData();
-                member.BindingContext = form;
-                await Navigation.PushAsync(member);
+                await Navigation.PopToRootAsync();
             }
             else
             {
@@ -55,6 +51,13 @@ namespace RegistrationForm.Views
                 { await DisplayAlert(fields[i], errors[i], "OK"); }
                 errors.Clear();
             }
+        }
+        private void Entry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text))
+                nameEntry.Text = Regex.Replace(nameEntry.Text, @"[0-9\-]", string.Empty);
+            if (!string.IsNullOrWhiteSpace(surNameEntry.Text))
+                surNameEntry.Text = Regex.Replace(surNameEntry.Text, @"[0-9\-]", string.Empty);
         }
     }
 }

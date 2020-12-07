@@ -10,11 +10,14 @@ namespace RegistrationForm.Views
     public partial class MemberData : ContentPage
     {
         RegisterFormViewModel register;
+       
         public MemberData()
         {
             InitializeComponent();
             register = new RegisterFormViewModel();
         }
+
+
         private async void DeleteMember(object sender, EventArgs e)
         {
             var member = (RegisterForm)BindingContext;

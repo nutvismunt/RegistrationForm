@@ -8,9 +8,9 @@
 
     <StackLayout Margin="6,0,0,0" x:Name="stackLayout">
         <Label Text="Имя" FontSize="Medium"/>
-        <Entry MaxLength="30" Keyboard="Text" Text="{Binding Name}"/>
+        <Entry MaxLength="15" Keyboard="Text" Text="{Binding Name}" PropertyChanged="Entry_PropertyChanged" x:Name="nameEntry"/>
         <Label Text="Фамилия" FontSize="Medium"/>
-        <Entry MaxLength="30" Keyboard="Text" Text="{Binding SurName}"/>
+        <Entry MaxLength="30" Keyboard="Text" Text="{Binding SurName}"  PropertyChanged="Entry_PropertyChanged" x:Name="surNameEntry"/>
         <Label Text="Дата рождения" FontSize="Medium"/>
         <DatePicker x:Name="birthDate" Format="dd.MM.yyyy" Date="{Binding BirthDate}"  />
         <Label Text="Номер телефона" FontSize="Medium"/>

@@ -16,6 +16,7 @@ namespace Views.RegistrationForm
         {
             InitializeComponent();
             register =new RegisterFormViewModel();
+            
         }
 
         protected override void OnAppearing()
@@ -24,20 +25,20 @@ namespace Views.RegistrationForm
             base.OnAppearing();
         }
 
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            RegisterForm selectedMember = (RegisterForm)e.SelectedItem;
-            MemberData memberData = new MemberData();
-            memberData.BindingContext = selectedMember;
-            await Navigation.PushAsync(memberData);
-
-        }
         private async void CreateMember(object sender, EventArgs e)
         {
             RegisterForm register = new RegisterForm();
             CreateMember createMember = new CreateMember();
             createMember.BindingContext = register;
             await Navigation.PushAsync(createMember);
+        }
+
+        private void members_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            RegisterForm selectedMember = (RegisterForm)e.Item;
+            MemberData memberData = new MemberData();
+            memberData.BindingContext = selectedMember;
+            Navigation.PushAsync(memberData);
         }
     }
 }

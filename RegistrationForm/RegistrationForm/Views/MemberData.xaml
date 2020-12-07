@@ -4,7 +4,6 @@
              x:Class="RegistrationForm.Views.MemberData"
              Title="{Binding Name}">
     <ContentPage.ToolbarItems>
-
         <ToolbarItem Text="X" Clicked="DeleteMember"/>
         <ToolbarItem Text="/" Clicked="EditMember"/>
 

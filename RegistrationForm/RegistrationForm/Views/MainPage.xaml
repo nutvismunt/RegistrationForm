@@ -15,7 +15,7 @@
 
         <ScrollView Grid.Row="0">
         <StackLayout>
-            <ListView x:Name="members" ItemSelected="OnItemSelected">
+            <ListView x:Name="members" ItemTapped="members_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
